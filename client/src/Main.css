@@ -1,0 +1,160 @@
+:root {
+    --fwm-primary: rgb(11, 90, 143);
+    --fwm-gray: rgb(241, 241, 241)
+}
+
+
+h1 {
+    text-align: center;
+}
+
+#fifthWallLogo {
+    height: 40px;
+    width: 40px;
+}
+
+#gif {
+    margin-left: "-100px";
+    margin-top: "100px";
+}
+
+#right-links {
+    margin-right: 0 "auto";
+}
+
+ul {
+    list-style-type: none;
+}
+
+.folder {
+    cursor: pointer;
+    user-select: none;
+}
+
+.folder::before {
+    content: "\02C5";
+    transform: rotate(270deg);
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.folder-down::before {
+    transform: rotate(0deg);
+}
+
+.nested {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.selectedFile {
+    background-color: lightblue;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.fileTree {
+    border-style: solid;
+    border-top: none;
+    height: 100%;
+    padding-left: 16px;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#footer {
+    background-color: lightgray;
+}
+
+.chartImage {
+    max-width: 70%;
+}
+
+.card {
+    width: 14rem;
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+.homeTitleSubtext {
+    color: rgb(11, 90, 143);
+    text-align: center;
+}
+
+.card:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
+.imageLink {
+    transition: all 0.2s ease;
+}
+
+.imageLink:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
+.fwm-bg-gray {
+    background-color: var(--fwm-gray);
+}
+
+.fwm-code-block {
+    border: 5px solid var(--fwm-primary);
+}
+
+.fwm-code-display {
+    margin-left: -30px;
+}
+
+.fwm-text {
+    color: var(--fwm-primary)
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #383636; /* Black */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+#fileDisplaySpinner {
+    margin-left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, .75) !important;
+}
+
+.nav-link:active {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.nav-link:focus {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 1) !important;
+}
