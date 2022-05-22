@@ -11,6 +11,7 @@ import Footer from './components/layout/Footer';
 import EditUser from './views/EditUser';
 import "react-toastify/dist/ReactToastify.css";
 import "./Main.css"
+import MovieClub from './views/MovieClub';
 
 export default class App extends Component {
   state = {};
@@ -41,6 +42,7 @@ export default class App extends Component {
                     <Route exact path="/editUser/:id" render={props => <EditUser user={this.state.user} onUpdateUser={this.handleUpdateUser} {...props}/>} />
                     <Route exact path="/login" render={props => <Login {...props}/>} />
                     <Route exact path="/logout" render={() => <Logout />} />
+                    <Route exact path="/movieClub" render={() => <MovieClub />} />
                     <Route exact path="/register" render={props => <Register {...props}/>} />
               </Switch>
             </div>
