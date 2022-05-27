@@ -23,7 +23,7 @@ export default class Register extends Form {
         try {
             const response = await register(this.state.data);
             auth.loginWithJwt(response.headers["x-auth-token"])
-            window.location = '/projects'
+            window.location = '/'
         } catch (err) {
             if(err.response && err.response.status === 400) {
             const errors = { ...this.state.errors };

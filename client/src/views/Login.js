@@ -18,7 +18,7 @@ export default class Login extends Form {
         try {
             const { data } = this.state
             await auth.login(data.username, data.password)
-            window.location = '/projects'
+            window.location = '/'
         } catch (err) {
             if (err.response && err.response.status === 400) {
                 const errors = { ...this.state.errors }
