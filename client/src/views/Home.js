@@ -13,7 +13,7 @@ export default class Home extends Component {
                 </div>
                 
                 <Link to='/movieClub'>
-                    <h3 className='col-2 m-auto'>Movie Club</h3>
+                    <h3 className='col-2 m-auto border border-primary p-4'>Movie Club</h3>
                 </Link>
             </div>
         );
