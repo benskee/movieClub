@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import Joi from 'joi-browser';
 import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 import Form from './../common/FormFunc';
 import searchMovies from '../../services/movieSearchService';
-import Movie from './Movie';
 import AddMovie from './AddMovie';
-import { Link } from 'react-router-dom';
 
 function MovieSearch() {
     const [ data, setData ] = useState({search: ''})
     const [ errors, setErrors ] = useState({})
-    const [ movies, setMovies ] = useState({})
+    const [ movies, setMovies ] = useState([])
 
     const schema = {
         search: Joi.string()
@@ -35,16 +32,16 @@ function MovieSearch() {
             {Form.renderInput('search', 'Search for movie...', formProps )}
             {Form.renderButton()}
             <br/><br/><br/>
-            <ul>
-                {movies?.length && movies.map(movie => 
-                    <li key={movie.id}>
-                        <Popup trigger={<button>{ movie.title }</button>} modal>
-                            <AddMovie movie={movie} />
-                        </Popup>
-                    </li>)
-                }
-            </ul>
         </form>
+        {movies.length > 0 && <ul className='border border-dark rounded movie-search-list pl-0'>
+            {movies?.length && movies.map((movie, idx) => 
+                <li className={idx % 2 == 0 ? 'bg-secondary text-white' : null} key={movie.id}>
+                    <Popup trigger={<p className='movie-result'>{ movie.title }</p>} modal>
+                        <AddMovie movie={movie} />
+                    </Popup>
+                </li>)
+            }
+        </ul>}
     </>
   )
 }

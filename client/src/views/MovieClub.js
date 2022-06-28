@@ -3,7 +3,7 @@ import MovieSearch from '../components/movieClub/MovieSearch';
 
 function MovieClub() {
   return (
-    <div className='col-6 m-auto'>MovieClub
+    <div className='container'>
         <MovieSearch /> 
     </div>
   )

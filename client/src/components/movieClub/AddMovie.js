@@ -12,7 +12,7 @@ function AddMovie(props) {
         <p><b>Description: </b>{movie.overview}</p>
         <p><b>Release Year: </b>{movie.release_date.substr(0,4)}</p>
         <p><b>Vote Average: </b>{movie.vote_average}</p>
-        <button className='btn btn-secondary'>Save Movie</button>
+        <button className='btn btn-primary'>Save Movie</button>
     </div>
   )
 }

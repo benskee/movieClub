@@ -12,6 +12,7 @@ import Footer from './components/layout/Footer';
 import EditUser from './views/EditUser';
 import MovieClub from './views/MovieClub';
 
+import 'reactjs-popup/dist/index.css';
 import "react-toastify/dist/ReactToastify.css";
 import "./Main.css"
 
