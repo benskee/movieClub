@@ -1,38 +1,52 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import Joi from 'joi-browser';
-import Form from './../common/Form';
-import { searchMovies } from '../../services/movieSearchService';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import Form from './../common/FormFunc';
+import searchMovies from '../../services/movieSearchService';
+import Movie from './Movie';
+import AddMovie from './AddMovie';
+import { Link } from 'react-router-dom';
 
-export default class MovieSearch extends Form {
-        state = {
-        data: {search: ""},
-        errors: {},
-        movies: {}
-    }
+function MovieSearch() {
+    const [ data, setData ] = useState({search: ''})
+    const [ errors, setErrors ] = useState({})
+    const [ movies, setMovies ] = useState({})
 
-    schema = {
+    const schema = {
         search: Joi.string()
     }
 
-    doSubmit = async () => {
-        let movieData = await searchMovies(this.state.data.search);
-
-        this.setState({
-                movies: movieData
-            })
-        
-        console.log(this.state.movies)
+    const doSubmit = async () => {
+        let movieData = await searchMovies(data.search);
+        setMovies(movieData)
     }
 
-    render() {
-        return (
-            <>
-                <form onSubmit={this.handleSubmit} className="col-6 m-auto">
-                    {this.renderInput('search', 'Search for a movie...')}
-                    {this.renderButton('Search')}
-                </form>
-            </>
-        )
+    const formProps = {
+        data,
+        setData,
+        errors,
+        setErrors,
+        schema
     }
+  return (
+    <>
+        <form onSubmit={(e) => Form.handleSubmit(formProps, doSubmit, e)} className="col-6 m-auto">
+            {Form.renderInput('search', 'Search for movie...', formProps )}
+            {Form.renderButton()}
+            <br/><br/><br/>
+            <ul>
+                {movies?.length && movies.map(movie => 
+                    <li key={movie.id}>
+                        <Popup trigger={<button>{ movie.title }</button>} modal>
+                            <AddMovie movie={movie} />
+                        </Popup>
+                    </li>)
+                }
+            </ul>
+        </form>
+    </>
+  )
 }
+
+export default MovieSearch
